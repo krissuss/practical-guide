@@ -37,7 +37,6 @@ The script used in this guide relies on multiple tools, listed below. Researcher
 	 - Python 3.6 and above
 	 - Pytorch, Transformers and All the stock Python ML Libraries
 	 - GPU enabled setup
-"""
 ```
 !pip install opendatasets
 
@@ -46,11 +45,13 @@ pd.set_option('display.max_columns', None)
 import os
 import opendatasets as od
 ```
+
 ### Step 2: Get the data set URL from Kaggle.
 
 Next, we get the Kaggle URL for the specific data set we need to download.
 
 - We are using the csv dataset available at [#HappyBirthdayTaylorSwift Tweet Data](https://kaggle.com/datasets/1d11f844a930184c6b7d2b004c70810797017d7d5c1a72d135a854b90439237d)
+
 
 ### Step 3: Get Kaggle API token
 
@@ -60,35 +61,42 @@ Before we start downloading the data set, we need the Kaggle API token. To get t
 - At the top right of the screen, click on the elipses / three dots. Then, click on the “Copy API command” button.
 - This will prompt you to download the .json file into your system. Save the file, and we will use it in the next step.
 
+
 ### Step 4: Load the data
 
 Now that we have all the required information let’s start downloading the data sets from Kaggle using the steps below. You will need to add your Kaggle credentials: username and key. You can find those by opening up the json file.
 """
-
+```
 # Assign the Kaggle data set URL into variable
 dataset = 'https://www.kaggle.com/datasets/kristensussman/happybirthdaytaylorswift-data-121323'
 # Using opendatasets let's download the data sets
 od.download(dataset)
+```
+Once the file has finished uploading, you can use the `pd.read_csv()` command to read the file into a pandas data frame.
 
-"""Once the file has finished uploading, you can use the `pd.read_csv()` command to read the file into a pandas data frame."""
-
+```
 # Read and load the data
 path = '/content/happybirthdaytaylorswift-data-121323/Master_text_only_122823.csv'
 df = pd.read_csv(
     path, index_col=0
 )
+```
 
-"""We can use the df.head(10) command to display the first 10 rows of the data frame. This gives us a glimpse of the data and helps us understand the structure of the dataset. The output will show us the column names and the first few rows of the dataset."""
-
+We can use the df.head(10) command to display the first 10 rows of the data frame. This gives us a glimpse of the data and helps us understand the structure of the dataset. The output will show us the column names and the first few rows of the dataset.
+```
 df.head(10)
-
+```
+```
 !pip install transformers
 !pip install nltk
-
+```
+```
 import nltk
-
+```
+```
 nltk.download()
-
+```
+```
 import re
 import torch
 from transformers import pipeline, RobertaTokenizer, RobertaForSequenceClassification
@@ -146,18 +154,19 @@ def assign_sentiment_label(score):
 
 # Create a new column and assign sentiment labels based on the polarity score
 df['Sentiment Label'] = df['Polarity Score'].apply(assign_sentiment_label)
-
-"""This code uses the Twitter-RoBERTa model for sentiment analysis. The preprocess_tweet function is used to perform standard tweet-specific preprocessing, including converting text to lowercase, removing URLs, mentions, hashtags, stopwords, and tokenizing the tweet using NLTK's TweetTokenizer.
+```
+This code uses the Twitter-RoBERTa model for sentiment analysis. The preprocess_tweet function is used to perform standard tweet-specific preprocessing, including converting text to lowercase, removing URLs, mentions, hashtags, stopwords, and tokenizing the tweet using NLTK's TweetTokenizer.
 
 The analyze_sentiment function preprocesses the tweet using the defined preprocessing steps, encodes it using the Twitter-RoBERTa tokenizer, passes it through the model, computes the probability scores for positive, negative, and neutral sentiments, and calculates the polarity score by subtracting the negative probability from the positive probability.
 
 The assign_sentiment_label function assigns sentiment labels ('Positive', 'Negative', 'Neutral') based on the polarity score, and a new column 'Sentiment Label' in the dataframe is created to store these labels.
 
 Note, the thresholds for determining positive, negative, or neutral sentiment labels (0.1 and -0.1) are arbitrary and can be adjusted based on your specific use case and dataset characteristics.
-"""
-
+```
 df.head(100)
-
+```
+```
 # prompt: create a new csv of the df
 
 df.to_csv('df_sentiments.csv', index=False)
+```
