@@ -68,6 +68,7 @@ Before we start downloading the data set, we need the Kaggle API token. To get t
 ### Step 4: Load the data
 
 Now that we have all the required information let’s start downloading the data sets from Kaggle using the steps below. You will need to add your Kaggle credentials: username and key. You can find those by opening up the json file.
+
 """
 ```
 # Assign the Kaggle data set URL into variable
@@ -107,8 +108,6 @@ import pandas as pd
 from nltk.tokenize import TweetTokenizer
 
 # Load your dataframe (assuming it's already loaded as 'df')
-
-### Step 5: Sentiment Analysis
 
 # Load Twitter-RoBERTa tokenizer and model
 tokenizer = RobertaTokenizer.from_pretrained('cardiffnlp/twitter-roberta-base-sentiment')
