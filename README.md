@@ -14,10 +14,13 @@ This guide was created for use with **A practical guide for conducting state-of-
 
 #### Contents of the notebook
 
-The notebook is divided into the following sections to provide researchers an organized process for employing the RoBERTa model for sentiment analysis. Naturally, the process should be modified for individual research use cases. The sections are:
+The notebook is divided into the following sections to provide researchers with an organized process for employing the RoBERTa model for sentiment analysis. Naturally, the process should be modified for individual research use cases. The sections are:
 
 1. [Importing Python Libraries and preparing the environment](#section01)
-
+2. [Get the data set URL from Kaggle](#section02)
+3. [Get Kaggle API token](#section03)
+4. [Load the data](#section04)
+5. [Sentiment Analysis](#section05)
 
 #### Technical Details
 
@@ -104,6 +107,8 @@ import pandas as pd
 from nltk.tokenize import TweetTokenizer
 
 # Load your dataframe (assuming it's already loaded as 'df')
+
+### Step 5: Sentiment Analysis
 
 # Load Twitter-RoBERTa tokenizer and model
 tokenizer = RobertaTokenizer.from_pretrained('cardiffnlp/twitter-roberta-base-sentiment')
