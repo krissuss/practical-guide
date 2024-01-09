@@ -50,7 +50,7 @@ import os
 import opendatasets as od
 ```
 
-### Step 2: Get the data set URL from Kaggle.
+### Step 2: Get the data set URL from Kaggle
 
 Next, we get the Kaggle URL for the specific data set we need to download.
 
