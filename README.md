@@ -1,14 +1,10 @@
 # A Practical Guide for Social Media Research using RoBERTa for Sentiment Analysis
 
-### Step 1: Import Libraries & Upload the CSV file
-
-Here we import the required libraries; we just need a few to download and view the data sets along with opendatasets
-
 ### Introduction
 
-Large language models are becoming status quo for conducting state-of-the-art research, particularly for natural language processing tasks.
+Large language models are becoming the status quo for conducting state-of-the-art research, particularly for natural language processing tasks.
 
-In this tutorial, we will be fine tuning a RoBERTa model for conducting **Sentiment Analysis** using a dataset of tweets that include publicly available mentions of #HappyBirthdayTaylorSwift, occurring on December 13, 2023.
+In this tutorial, we will employ a RoBERTa model for conducting **Sentiment Analysis** using a dataset of tweets that include publicly available mentions of #HappyBirthdayTaylorSwift, occurring on December 13, 2023.
 
 This guide was created for use with **A practical guide for conducting state-of-the-art social media research** (Sussman, Looi, & Park, 2023) as part of the Journal of Current Issues in Advertising Research — Special Issue “Emerging Issues in Computational Advertising”.
 
@@ -24,7 +20,7 @@ The notebook is divided into the following sections to provide researchers with 
 
 #### Technical Details
 
-The script used in this guide relies on multiple tools, listed below. Researchers must enable these elements in order to successfully implement this script.
+The script used in this guide relies on multiple tools, listed below. Researchers must enable these elements to successfully implement this script.
 
  - Data:
 	 - We are using the csv dataset available at [#HappyBirthdayTaylorSwift Tweet Data](https://kaggle.com/datasets/1d11f844a930184c6b7d2b004c70810797017d7d5c1a72d135a854b90439237d)
@@ -40,6 +36,11 @@ The script used in this guide relies on multiple tools, listed below. Researcher
 	 - Python 3.6 and above
 	 - Pytorch, Transformers and All the stock Python ML Libraries
 	 - GPU enabled setup
+
+ ### Step 1: Import Libraries & Upload the CSV file
+
+Here we import the required libraries; we just need a few to download and view the data sets along with opendatasets
+
 ```
 !pip install opendatasets
 
